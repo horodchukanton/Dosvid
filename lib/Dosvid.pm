@@ -9,7 +9,7 @@ our $VERSION = '0.1';
 get '/' => sub {
     debug Dumper session;
 
-    template 'index', {logined => logged_in_user};
+    template ('index');
   };
 
 
