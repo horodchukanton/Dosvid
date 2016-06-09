@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Perl5XSubsState">
-    <option name="isActual" value="false" />
+    <option name="filesMap">
+      <map>
+        <entry key="Z:/Dwimperl/perl/vendor/lib/auto/XML/LibXSLT/LibXSLT.xs.dll" value="1321991768000" />
+      </map>
+    </option>
   </component>
 </project>
