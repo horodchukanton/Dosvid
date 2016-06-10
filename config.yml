@@ -18,13 +18,16 @@ charset: "UTF-8"
 # simple: default and very basic template engine
 # template_toolkit: TT
 
-template: "simple"
+#template: "template_toolkit"
 
-# template: "template_toolkit"
-# engines:
-#   template_toolkit:
-#     start_tag: '[%'
-#     end_tag:   '%]'
+template: "template_toolkit"
+engines:
+  template:
+    template_toolkit:
+      INCLUDE_PATH : views/
+#      WRAPPER: layouts/main.tt
+      start_tag : '<%'
+      end_tag : '%>'
 
 # For session support enable the following line and see Dancer::Session
 session: YAML

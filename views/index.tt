@@ -2,7 +2,6 @@
 
 <a href="/hello">Say "Hello" if logined, login otherwise</a>
 
+<h1><% counter %></h1>
+
 </hr>
-
-<% IF logined %><a href="/logout">Destroy session</a><% END %>
-

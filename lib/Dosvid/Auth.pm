@@ -1,4 +1,4 @@
-package Auth;
+package Dosvid::Auth;
 use strict;
 use warnings FATAL => 'all';
 
@@ -26,5 +26,11 @@ sub http_login {
     }
   }
 }
+
+any '/logout' => sub {
+    session->destroy();
+
+    redirect '/';
+  };
 
 1;
