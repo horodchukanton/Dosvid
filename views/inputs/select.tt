@@ -1,0 +1,14 @@
+<div class="form-group">
+  <% IF select.label %>
+  <label
+  <% IF select.id %> for="<% select.id %>" <% END %>
+  class="control-label col-md-3"
+  ><% select.label %></label>
+  <% END %>
+  <div class="col-md-9">
+    <select name="<% select.name %>" class="form-control" <% IF select.id %> id="<% select.id %>" <% END %> >
+    <% FOREACH option IN select.options %>
+    <option value="<% option.key %>"><% option.value %></option>
+    <%END%>
+    </select>
+  </div>

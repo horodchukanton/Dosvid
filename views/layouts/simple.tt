@@ -1,0 +1,6 @@
+<% INCLUDE shared/head.tt %>
+<body>
+<div class="container">
+  <% content %>
+</div>
+</body>

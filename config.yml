@@ -25,13 +25,35 @@ engines:
   template:
     template_toolkit:
       INCLUDE_PATH : views/
-#      WRAPPER: layouts/main.tt
+      WRAPPER: 'layouts/main.tt'
       start_tag : '<%'
       end_tag : '%>'
 
 # For session support enable the following line and see Dancer::Session
 session: YAML
 plugins:
+  Database:
+    connections:
+      mysql:
+        db_connection_name : 'mysql'
+        driver : 'mysql'
+        host : 'localhost'
+        port: 3306,
+        database : 'dosvid'
+        username: 'admin'
+        password: 'admindbpassword'
+        connection_check_threshold: 10
+        dbi_params:
+          RaiseError: 1
+          AutoCommit: 1
+        on_connect_do: ["SET NAMES 'utf8'", "SET CHARACTER SET 'utf8'" ]
+        log_queries: 1
+      mongodb:
+        db_connection_name : 'mongodb'
+        driver : 'mongodb'
+        host: 'localhost'
+        username: 'admin'
+        password: 'admindbpassword'
   Auth::Extensible:
     # Set to 1 if you want to disable the use of roles (0 is default)
     disable_roles: 0
@@ -39,6 +61,9 @@ plugins:
     user_home_page: '/user'
     # After /logout: If no return_url is given: land here (no default)
     exit_page: '/'
+    no_default_pages : true
+    no_login_handler : true
+#    login_page_handler : 'Dosvid::Auth::login_page_handler'
 
     # List each authentication realm, with the provider to use and the
     # provider-specific settings (see the documentation for the provider
@@ -46,19 +71,5 @@ plugins:
     realms:
       realm_one:
         provider: Database
-#    no_default_pages : true
-    # db_connection_name: 'mysql'
+        db_connection_name: 'mysql'
 
-  Database:
-    driver : 'mysql'
-    host : 'localhost'
-    port: 3306,
-    database : 'dosvid'
-    username: 'admin'
-    password: 'admindbpassword'
-    connection_check_threshold: 10
-    dbi_params:
-      RaiseError: 1
-      AutoCommit: 1
-    on_connect_do: ["SET NAMES 'utf8'", "SET CHARACTER SET 'utf8'" ]
-    log_queries: 1

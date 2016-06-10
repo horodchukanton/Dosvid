@@ -1,0 +1,20 @@
+<form class="form-horizontal" <% IF id %>id="<%id%>"<% END %>  method="post">
+  <% FOREACH arg IN arguments %>
+    <% SWITCH arg.type %>
+
+      <% CASE [ 'text' 'password' 'number' 'date' ] %>
+        <% INCLUDE inputs/text.tt input = arg %>
+
+      <% CASE 'select' %>
+        <% INCLUDE inputs/select.tt select = arg %>
+
+      <% CASE 'checkbox' %>
+        <% INCLUDE inputs/checkbox.tt input = arg %>
+
+      <% CASE %>
+        Unknown argument : <% arg.type %>
+    <% END %>
+
+  <% END %>
+
+</form>

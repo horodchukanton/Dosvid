@@ -17,16 +17,11 @@ get '/' => sub {
   };
 
 
-get '/login' => sub {
-    template 'login', { app_name => config->{appname} };
-  };
-
 get '/hello' => require_login sub {
       my $user = logged_in_user();
 
       template ('index', {  counter =>  "Hi there, $user->{username}" }, { layout => 'admin' } );
     };
-
 
 
 get '/user' => require_login sub {
@@ -36,5 +31,7 @@ get '/user' => require_login sub {
 
     return $result;
   };
+
+
 
 true;

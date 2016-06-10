@@ -1,0 +1,24 @@
+<div class="form-group">
+  <% IF input.label %>
+  <label
+  <% IF input.id %> for="<% input.id %>" <% END %>
+  class="control-label col-md-3"
+  ><% input.label %></label>
+  <% END %>
+  <div class="col-md-9">
+    <input
+    <% IF input.type %> type="<% input.type %>" <% ELSE %> type="text" <% END %>
+    <% IF input.class %> class="<% input.class %>" <% ELSE %> class="form-control" <% END %>
+    <% IF input.name %> name="<% input.name %>" <% END %>
+    <% IF input.value %> value="<% input.value %>" <% END %>
+    <% IF input.id %> id="<% input.id %>" <% END %>
+    <% IF input.placeholder %> placeholder="<% input.placeholder %>" <% END %>
+    />
+  </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+<div class="checkbox">
+  <label>
+    <input
+    <% IF input.type %> type="<% input.type %>" <% ELSE %> type="checkbox" <% END %>
+    <% IF input.class %> class="<% input.class %>" <% END %>
+    <% IF input.name %> name="<% input.name %>" <% END %>
+    <% IF defined input.value %> value="<% input.value %>" <% ELSE %> value="1" <% END %>
+    <% IF input.value %> checked="checked" <% END %>
+    <% IF input.id %> id="<% input.id %>" <% END %>
+    <% IF input.placeholder %> placeholder="<% input.placeholder %>" <% END %>
+    />
+    <% IF input.label %><% input.label %><% END %>
+  </label>
+</div>
