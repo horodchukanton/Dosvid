@@ -27,3 +27,4 @@ nytprof.out
 .idea/dataSources.ids
 .idea/dataSources.local.xml
 .idea/workspace.xml
+/config.yml
