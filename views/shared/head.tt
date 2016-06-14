@@ -5,9 +5,13 @@
   <title>Dosvid</title>
 
   <!-- Bootstrap -->
-  <link href="/css/vendor/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/vendor/bootstrap-theme.min.css" rel="stylesheet">
+  <!--<link href="/css/vendor/bootstrap.min.css" rel="stylesheet">-->
+  <!--<link href="/css/vendor/bootstrap-theme.min.css" rel="stylesheet">-->
 
+  <!--Material-->
+  <link rel="stylesheet" href="/css/vendor/material.min.css">
+
+  <link rel="stylesheet" href="/css/vendor/material-icons.css">
 
   <link href="/css/style.css" rel="stylesheet">
 

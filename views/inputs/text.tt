@@ -1,14 +1,14 @@
-<div class="form-group">
+<div class="mdl-textfield mdl-js-textfield">
   <% IF input.label %>
   <label
   <% IF input.id %> for="<% input.id %>" <% END %>
-  class="control-label col-md-3"
+  class="mdl-textfield__label"
   ><% input.label %></label>
   <% END %>
   <div class="col-md-9">
     <input
     <% IF input.type %> type="<% input.type %>" <% ELSE %> type="text" <% END %>
-    <% IF input.class %> class="<% input.class %>" <% ELSE %> class="form-control" <% END %>
+    <% IF input.class %> class="<% input.class %>" <% ELSE %> class="mdl-textfield__input" <% END %>
     <% IF input.name %> name="<% input.name %>" <% END %>
     <% IF input.value %> value="<% input.value %>" <% END %>
     <% IF input.id %> id="<% input.id %>" <% END %>
@@ -16,8 +16,6 @@
     />
   </div>
 </div>
-
-
 
 
 

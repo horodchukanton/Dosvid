@@ -5,8 +5,8 @@ use warnings FATAL => 'all';
 use Dancer qw/:syntax/;
 use Dancer::Plugin::Auth::Extensible;
 
-prefix 'admin' => sub{
-    get '/dashboard' => require_role admin sub {
+prefix '/admin' => sub{
+    get '/dashboard' => require_role admin => sub {
 
       };
   };

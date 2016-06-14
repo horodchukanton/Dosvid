@@ -2,14 +2,20 @@
 <html lang="en">
 <% INCLUDE shared/head.tt %>
 <body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 <% INCLUDE shared/navbar.tt %>
-<div class="container" id="main-container">
-
-  <div class="row">
-    <% content %>
-  </div>
-
+  <main class="mdl-layout__content">
+    <div class="page-content"><% content %></div>
+  </main>
 </div>
+
+<!--<div class="container" id="main-container">-->
+
+  <!--<div class="row">-->
+    <!--<% content %>-->
+  <!--</div>-->
+
+<!--</div>-->
 
 <% INCLUDE shared/footer_scripts.tt %>
 </body>

@@ -4,4 +4,6 @@
 
 <h1><% counter %></h1>
 
-</hr>
+<hr/>
+
+<h2><% get debug_info %></h2>

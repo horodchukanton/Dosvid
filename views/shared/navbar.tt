@@ -1,3 +1,4 @@
+<!--
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -24,12 +25,42 @@
 
       <ul class="nav navbar-nav navbar-right">
 
-        <% IF session.logged_in_user  %>
-        <li><a href="/logout">Logout</a></li>
-        <% ELSE  %>
-        <li><a href="/user">Login</a></li>
-        <% END %>
+
       </ul>
     </div>
   </div>
-</nav>
+</nav>-->
+
+
+<header class="mdl-layout__header">
+  <div class="mdl-layout__header-row">
+    <!-- Title -->
+    <span class="mdl-layout-title">Dosvid</span>
+    <!-- Add spacer, to align navigation to the right -->
+    <div class="mdl-layout-spacer"></div>
+    <!-- Navigation. We hide it in small screens. -->
+    <nav class="mdl-navigation mdl-layout--large-screen-only">
+      <% IF session.logged_in_user %>
+        <a class="mdl-navigation__link" href="/logout">Logout</a>
+      <% ELSE %>
+        <a class="mdl-navigation__link" href="/registration">Register</a>
+        <a class="mdl-navigation__link" href="/user">Login</a>
+      <% END %>
+    </nav>
+  </div>
+</header>
+<div class="mdl-layout__drawer">
+  <span class="mdl-layout-title">Title</span>
+  <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="/">Home</a>
+    <% IF session.logged_in_user %>
+      <a class="mdl-navigation__link" href="/logout">Logout</a>
+    <% ELSE %>
+      <a class="mdl-navigation__link" href="/registration">Register</a>
+      <a class="mdl-navigation__link" href="/user">Login</a>
+    <% END %>
+  </nav>
+</div>
+
+
+

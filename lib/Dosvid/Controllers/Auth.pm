@@ -9,7 +9,7 @@ use Dancer::Plugin::Database;
 use Crypt::SaltedHash;
 
 get '/login' => sub {
-    template 'login', { app_name => config->{appname} };
+    template 'auth/login', { app_name => config->{appname} };
   };
 
 post '/login' => sub {
@@ -33,6 +33,10 @@ post '/login' => sub {
       }
       else {
         debug( "Login failed - password incorrect for " . params->{user} );
+
+        # Check corectness
+        session failed_logins_counter => ((session->{failed_logins_counter}) ? session->{failed_logins_counter}++ : 1);
+
         redirect '/login?failed=pass';
       }
     }
@@ -40,7 +44,7 @@ post '/login' => sub {
   };
 
 get '/registration' => sub {
-    template 'registration', {
+    template 'auth/registration', {
         app_name          => config->{appname},
         lifeplace_options => { '0' => 'Mid school', '1' => 'High school', '2' => 'University', '3' => 'Work' }
       }, { layout => 'simple' };
@@ -65,6 +69,15 @@ post '/registration' => sub {
 
       redirect "/registration?failed=$failed_param";
     }
+  };
+
+any '/logout' => sub {
+    session->destroy();
+    redirect '/';
+  };
+
+get '/login/denied' => sub {
+    template 'auth/permission_denied';
   };
 
 1;
