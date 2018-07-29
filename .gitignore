@@ -23,9 +23,6 @@ nytprof.out
 
 /sessions/
 /logs/
-/.idea/
-.idea/dataSources.ids
-.idea/dataSources.local.xml
-.idea/workspace.xml
+/.idea
 /config.yml
 _Deparsed_XSubs.pm
