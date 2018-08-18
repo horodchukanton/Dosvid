@@ -72,10 +72,9 @@ post '/registration' => sub {
 
         $schema->resultset('User')->create(
             {
-                %{ params() },
-                username  => params->{username},
-                password  => $csh->generate(),
-                salt      => $salt,
+                %{params()},
+                password => $csh->generate(),
+                salt     => $salt,
             }
         );
 

@@ -39,32 +39,6 @@ plugins:
       schema_class: Dosvid::Schema
       user: 'dosvid'
       password: 'password'
-#  Database:
-#    connections:
-#      main:
-#        db_connection_name : 'main'
-#        driver: M
-#        database: 'development.db'
-#      mysql:
-#        db_connection_name : 'mysql'
-#        driver : 'mysql'
-#        host : 'localhost'
-#        port: 3306,
-#        database : 'dosvid'
-#        username: 'admin'
-#        password: 'admindbpassword'
-#        connection_check_threshold: 10
-#        dbi_params:
-#          RaiseError: 1
-#          AutoCommit: 1
-#        on_connect_do: ["SET NAMES 'utf8'", "SET CHARACTER SET 'utf8'" ]
-#        log_queries: 1
-#      mongodb:
-#        db_connection_name : 'mongodb'
-#        driver : 'mongodb'
-#        host: 'localhost'
-#        username: 'admin'
-#        password: 'admindbpassword'
   Auth::Extensible:
     # Set to 1 if you want to disable the use of roles (0 is default)
     disable_roles: 0
@@ -82,5 +56,5 @@ plugins:
     realms:
       realm_one:
         provider: Database
-        db_connection_name: 'mysql'
+        db_connection_name: 'default'
 

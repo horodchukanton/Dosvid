@@ -19,12 +19,6 @@ our $VERSION = '0.1';
 
 my Dosvid::Globals $globals = Dosvid::Globals->new();
 
-# my $schema = Dosvid::Schema->connect( {
-#     dsn      => 'dbi:SQLite:development.db',
-#     # user     => 'admin',
-#     # password => 'admindbpassword',
-#   } ) or die "Can't connect to schema";
-
 my $schema = schema('default') or die "Can't get schema";
 
 my $admin_info = $schema->resultset('User');
