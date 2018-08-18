@@ -36,6 +36,7 @@ sub get_instance {
 =cut
 #**********************************************************
 sub set_db_connection {
+  die 'set_db_connection';
   my $self = shift;
   my ($connection) = @_;
   $self->{db} = $connection;
@@ -47,6 +48,8 @@ sub set_db_connection {
 =cut
 #**********************************************************
 sub get_db_connection(){
+  die 'get_db_connection';
+
   return shift->{db};
 }
 

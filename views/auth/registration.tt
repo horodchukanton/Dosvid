@@ -1,35 +1,38 @@
-<h1>Registration</h1>
-    <div class="mdl-card">
-      <div class="mdl-card__title">
-        <h3 class="mdl-card__title-text">Registration</h3>
-      </div>
-      <div class="panel-body">
-
-        <% INCLUDE form.tt
-
-        id => 'registration_form'
-        arguments = [
-          {
-            type => 'text',
-            name => 'user'
-            label => 'Username',
-            placeholder => 'Username',
-          },{
-            type => 'password',
-            name => 'pass'
-            label => 'Password',
-            placeholder => 'Password',
-          },{
-            type => 'select',
-            name => 'lifeplace',
-            label => 'Lifeplace'
-            options => lifeplace_options
-          }
-        ]
-
-        %>
-      </div>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Registration</h3>
+        </div>
+        <div class="panel-body">
+            <% INCLUDE form.tt
+                id => 'registration_form'
+                arguments => [
+                        {
+                                type => 'text',
+                                name => 'username'
+                                label => 'Username',
+                                placeholder => 'Username',
+                            },
+                        {
+                                type => 'password',
+                                name => 'password'
+                                label => 'Password',
+                                placeholder => 'Password',
+                            },
+                        {
+                                type => 'date',
+                                name => 'birthdate'
+                                label => 'Birthdate',
+                                value => '19.03.2025'
+                                placeholder => 'Birthdate',
+                            },
+                    ]
+            %>
+        </div>
+        <div class="panel-footer text-right">
+            <input class="btn btn-primary" type="submit" form="registration_form">
+        </div>
     </div>
-    <div class="panel-footer text-right">
-      <input class="btn btn-primary" type="submit" form="registration_form">
-    </div>
+</div>
+
+

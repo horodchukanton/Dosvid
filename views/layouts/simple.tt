@@ -1,6 +1,6 @@
 <% INCLUDE shared/head.tt %>
 <body>
 <div class="container">
-  <% content %>
+    <% content %>
 </div>
 </body>

@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-use Dancer ':syntax';
+use Dancer2  appname => 'Dosvid';;
 use FindBin '$RealBin';
 use Plack::Runner;
 

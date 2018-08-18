@@ -1,15 +1,19 @@
 CREATE TABLE users
 (
-  id        INT(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  username  VARCHAR(32)                  NOT NULL,
-  password  VARCHAR(40)                  NOT NULL,
-  salt      VARCHAR(32)                  NOT NULL,
-  email     VARCHAR(128)                 NOT NULL DEFAULT '',
-  birthdate DATETIME                     NOT NULL,
-  photo     MEDIUMBLOB,
-  account   DOUBLE PRECISION             NOT NULL DEFAULT 0
+  id         INT(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  username   VARCHAR(32)                  NOT NULL,
+  password   VARCHAR(40)                  NOT NULL,
+  salt       VARCHAR(32)                  NOT NULL,
+  email      VARCHAR(128)                 NOT NULL DEFAULT '',
+  birthdate  DATE                         NOT NULL,
+  photo      MEDIUMBLOB,
+  is_student BOOLEAN                      NOT NULL DEFAULT 0,
+  is_teacher BOOLEAN                      NOT NULL DEFAULT 0,
+  account    DOUBLE PRECISION             NOT NULL DEFAULT 0
 );
-CREATE UNIQUE INDEX username ON users (username);
+
+CREATE UNIQUE INDEX username
+  ON users (username);
 
 CREATE TABLE roles
 (
@@ -25,7 +29,8 @@ CREATE TABLE user_roles
     ON DELETE CASCADE
 
 );
-CREATE UNIQUE INDEX user_role ON user_roles (user_id, role_id);
+CREATE UNIQUE INDEX user_role
+  ON user_roles (user_id, role_id);
 
 CREATE TABLE user_sessions (
   id  INT(11) UNSIGNED UNIQUE AUTO_INCREMENT NOT NULL,
@@ -33,19 +38,20 @@ CREATE TABLE user_sessions (
     ON DELETE CASCADE,
   ua  VARCHAR(100)                           NOT NULL DEFAULT ''
 );
-CREATE INDEX user_sessions_ ON user_sessions (uid);
+CREATE INDEX user_sessions_
+  ON user_sessions (uid);
 
 CREATE TABLE messages (
-  id          INT(11) UNSIGNED PRIMARY KEY NOT NULL,
-  created     TIMESTAMP                              DEFAULT CURRENT_TIMESTAMP,
-  is_read     TINYINT(1)                   NOT NULL  DEFAULT 0,
-  readed      TIMESTAMP                              DEFAULT CURRENT_TIMESTAMP,
+  id       INT(11) UNSIGNED PRIMARY KEY NOT NULL,
+  created  TIMESTAMP                              DEFAULT CURRENT_TIMESTAMP,
+  is_read  TINYINT(1)                   NOT NULL  DEFAULT 0,
+  readed   TIMESTAMP                              DEFAULT CURRENT_TIMESTAMP,
   sender   INT(11) UNSIGNED REFERENCES users (`id`)
     ON DELETE CASCADE,
   receiver INT(11) UNSIGNED REFERENCES users (`id`)
     ON DELETE CASCADE,
-  header      VARCHAR(120)                 NOT NULL  DEFAULT '',
-  message     TEXT                         NOT NULL
+  header   VARCHAR(120)                 NOT NULL  DEFAULT '',
+  message  TEXT                         NOT NULL
 );
 
 CREATE TABLE sciences (

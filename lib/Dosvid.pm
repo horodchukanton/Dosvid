@@ -1,9 +1,12 @@
 package Dosvid;
-use Dancer;
 
-use Dancer::Plugin::Auth::Extensible;
-use Dancer::Plugin::Database;
 use Data::Dumper;
+
+
+use Dancer2 appname => 'Dosvid';
+
+use Dancer2::Plugin::Auth::Extensible;
+use Dancer2::Plugin::DBIC;
 
 use Dosvid::Globals;
 use Dosvid::Schema;
@@ -12,18 +15,19 @@ use Dosvid::Controllers::Auth;
 use Dosvid::Controllers::Admin;
 use Dosvid::Controllers::User;
 
-
 our $VERSION = '0.1';
 
 my Dosvid::Globals $globals = Dosvid::Globals->new();
 
-$globals->set_db_connection(database('mysql'));
+# my $schema = Dosvid::Schema->connect( {
+#     dsn      => 'dbi:SQLite:development.db',
+#     # user     => 'admin',
+#     # password => 'admindbpassword',
+#   } ) or die "Can't connect to schema";
 
-my $schema = Dosvid::Schema->connect( {
-    dsn      => 'dbi:mysql:database=dosvid',
-    user     => 'admin',
-    password => 'admindbpassword',
-  } );
+my $schema = schema('default') or die "Can't get schema";
+
+my $admin_info = $schema->resultset('User');
 
 $globals->set_schema($schema);
 
