@@ -2,7 +2,6 @@ package Dosvid;
 
 use Data::Dumper;
 
-
 use Dancer2 appname => 'Dosvid';
 
 use Dancer2::Plugin::Auth::Extensible;
