@@ -16,7 +16,6 @@ use HTTP::Request::Common;
 use Plack::App::PSGIBin;
 my Plack::App::PSGIBin $app = Dancer2->psgi_app(['Dosvid']);
 
-my $schema = schema('default') or die "Can't get schema";
 my $test = Plack::Test->create($app);
 
 {
@@ -42,7 +41,6 @@ my $test = Plack::Test->create($app);
     });
 
     my $res = $test->request($request, 'Login with wrong password redirects to logins');
-    $schema->resultset('User')->find({username => 'admin'})->delete();
     is ($res->code, 302);
 
     # TODO: check redirected to login
@@ -51,3 +49,8 @@ my $test = Plack::Test->create($app);
 
 
 done_testing();
+
+END {
+    my $schema = schema('default') or die "Can't get schema";
+    $schema->resultset('User')->find({username => 'admin'})->delete();
+}
